@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tela {
+            width: 960px;
+            height: 560px;
+            background-color: rgb(24, 247, 255);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+       .alvo {
+            position: absolute;
+            transform: translate(450px, 243px);
+                /* Max 885, 485 */
+        }
+    </style>
+
+</head>
+
+<body>
+    <script>
+        //Criando a tela de fundo
+        var tela = document.createElement('div')
+        tela.className = 'tela'
+        document.body.appendChild(tela)
+        
+        //Criando o alvo e adicionando na tela
+        var alvo = document.createElement('img')
+        alvo.className = 'alvo'
+        alvo.src = ('alvo.png')
+        tela.appendChild(alvo)
+        
+        alvo.addEventListener('click', acertar)
+        function acertar() {
+            var x = Math.floor(Math.random()*885)
+            var y = Math.floor(Math.random()*485)
+            alvo.style.transform = `translate(${x}px, ${y}px)`
+        }
+    </script>
+</body>
+
+</html>
